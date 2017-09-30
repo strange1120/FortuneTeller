@@ -186,7 +186,8 @@ public class FortuneTeller {
 				+ lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase() + " will retire in "
 				+ userAge + " years with " + bankFormatting.format(bankBalance) + ", with a vacation home in "
 				+ vacationHome + ", and will travel by a " + carType);
-
+ 
+		System.out.println("Live longer and prosper my friend");
 	}
 
 }
