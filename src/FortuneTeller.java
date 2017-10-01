@@ -4,9 +4,17 @@ import java.util.Locale;
 
 public class FortuneTeller {
 
+	public static void checkForQuit(String string) {
+		if (string.equalsIgnoreCase("quit")) {
+			System.out.println("Nobody likes a quitter...");
+			System.exit(0);
+		}
+	}
+
 	public static void main(String[] args) {
 
 		Scanner input = new Scanner(System.in);
+
 		// This is a fortune teller program that determines a user's fortune
 		// based on input from the user
 		System.out.println("Let me tell you your future mon. Madame Strange knows all.");
@@ -15,37 +23,41 @@ public class FortuneTeller {
 		// Asking the user for their first name
 		System.out.println("What is your first name?");
 		String firstName = input.next();
-		if (firstName.equalsIgnoreCase("quit")) {
-			System.out.println("Nobody likes a quitter...");
-			System.exit(0);
-		}
-		
+		checkForQuit(firstName);
+
 		// Asking the user for their last name
 		System.out.println("What is your last name?");
 		String lastName = input.next();
-		if (firstName.equalsIgnoreCase("quit")) {
-			System.out.println("Nobody likes a quitter...");
-			System.exit(0);
-		}
+		checkForQuit(lastName);
+
 		// Asking the user for their age
 		System.out.println("How old are you?");
-		int userAge = input.nextInt();
+		String userAgeString = input.next();
+		checkForQuit(userAgeString);
+		int userAge = Integer.parseInt(userAgeString);
+
 		// Asking the user to input their birth month in a numerical value
-		System.out
-				.println("What month were you born? /n Please enter the corresponding numerical value for the month.");
-		int birthMonth = input.nextInt();
+		System.out.println("What month were you born? \nPlease enter the corresponding numerical value for the month.");
+		String birthMonthString = input.next();
+		checkForQuit(birthMonthString);
+		int birthMonth = Integer.parseInt(birthMonthString);
 
 		// Asking the user's favorite color
 		System.out.println("What is your favorite ROYGBIV color?");
 		String favoriteColor = input.next().toLowerCase();
+		checkForQuit(favoriteColor);
+		favoriteColor = favoriteColor.toLowerCase();
 
-		// Using a while statement to display the ROYGBIV color anytime a user
+		// Using a while statement to display the ROYGBIV color when a user
 		// asks for help
 		while (favoriteColor.equalsIgnoreCase("help")) {
 			System.out.println("The ROYGBIV colors are red, blue, green, violet, indigo, yellow, and orange.");
 			System.out.println("What is your favorite ROYGBIV color?");
-			favoriteColor = input.next().toLowerCase();
+			favoriteColor = input.next();
+			checkForQuit(favoriteColor);
+			favoriteColor = favoriteColor.toLowerCase();
 		}
+		
 		// Using a switch statement to determine if the user has entered a
 		// correct color
 		switch (favoriteColor) {
@@ -63,21 +75,27 @@ public class FortuneTeller {
 			System.out.println("The ROYGBIV colors are red, blue, green, yellow, orange, indigo, and violet.");
 			System.out.println("What's your favorite color?");
 			favoriteColor = input.next().toLowerCase();
+			checkForQuit(favoriteColor);
 		}
+
 		// Asking the user for how many siblings they have
 		System.out.println("How many siblings do you have?");
-		int siblingNum = input.nextInt();
+		String siblingNumString = input.next();
+		checkForQuit(siblingNumString);
+		int siblingNum = Integer.parseInt(siblingNumString);
 
 		// Asking the user if they are ready for their fortune
 		System.out.println("Alright. Are you ready for your fortune? Yes or no.");
 		String fortuneReady = input.next();
-		
+		checkForQuit(fortuneReady);
+
 		// While statement if the user enters no it will prompt a message and
 		// then ask again if they are ready
 		while (fortuneReady.equalsIgnoreCase("no")) {
 			System.out.println("You can't run from the future mon!");
 			System.out.println("Are you ready for your fortune now?");
 			fortuneReady = input.next();
+			checkForQuit(fortuneReady);
 		}
 
 		// Calculating retirement age by determining if user's age is even or
@@ -133,7 +151,7 @@ public class FortuneTeller {
 			carType = "in a Tesla";
 			break;
 		default:
-			break;
+			System.out.println("by foot because you couldn't follow directions :(");
 		}
 
 		// Using the birth month to determine what their bank balance will be
@@ -170,11 +188,12 @@ public class FortuneTeller {
 		System.out.println(firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase() + " "
 				+ lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase() + " will retire in "
 				+ userAge + " years with " + bankFormatting.format(bankBalance) + ", with a vacation home in "
-				+ vacationHome + ", and will travel " + carType);
+				+ vacationHome + ", and will travel " + carType + ".");
 
-		System.out.println("Live long and prosper my friend");
+		System.out.println("Live long and prosper my friend.");
 
 		input.close();
 		System.exit(0);
+
 	}
 }
