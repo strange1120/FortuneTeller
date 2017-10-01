@@ -22,69 +22,36 @@ public class FortuneTeller {
 			
 		System.out.println("What is your favorite ROYGBIV color?");
 		String favoriteColor = input.next().toLowerCase();
-		
-		
-		switch (favoriteColor) {
-		case "indigo":
-		case "red":
-		case "blue":
-		case "green":
-		case "yellow":
-		case "orange":
-		case "violet":
-		case "help": 
-			while (favoriteColor.equalsIgnoreCase("help")) {
-			System.out.println("The ROYGBIV colors are: violet, indigo, green, blue, red, yellow, and orange.");
-			System.out.println("What is your favorite color?");
-			favoriteColor = input.next().toLowerCase();
-		}
-			break;
-		default:
-			System.out.println("Do you know what ROYGBIV is? Yes or no.");
-			String answer = input.next();
 			
-	if (answer.equalsIgnoreCase("yes")) {
-				System.out.println("What is your favorite ROYGBIV color?");
-				favoriteColor = input.next();
-			}
-
-			while (answer.equalsIgnoreCase("no")) {
-				System.out.println("Please enter \"Help\" to get a list of colors.");
-				answer = input.next();
-				if (answer.equalsIgnoreCase("yes")) {
+		
+				while (favoriteColor.equalsIgnoreCase("help")){
+					System.out.println("The ROYGBIV colors are red, blue, green, violet, indigo, yellow, and orange.");
 					System.out.println("What is your favorite ROYGBIV color?");
 					favoriteColor = input.next();
-				} else if (answer.equalsIgnoreCase("help")) {
-					System.out.println("The ROYGBIV colors are: violet, indigo, green, blue, red, yellow, and orange.");
-					System.out.println("What is your favorite color?");
-					favoriteColor = input.next();
-				} else {
-					System.out.println("Please enter \"Help\" to get a list of colors.");
-					answer = input.next();
-				}
+					}
+					
+					switch (favoriteColor) {
+					
+					case "violet":
+					case "indigo":
+					case "yellow":
+					case "red":
+					case "blue":
+					case "green":
+					case "orange":
+					break;
+					default:
+						System.out.println("You have entered an invalid color.");
+						System.out.println("The ROYGBIV colors are red, blue, green, yellow, orange, indigo, and violet.");
+						System.out.println("What's your favorite color?");
+						favoriteColor = input.next();
+					}
+					
+				
 			
-
-				// while (answer.equalsIgnoreCase("help")) {
-				// System.out.println("The ROYGBIV colors are: violet, indigo,
-				// green, blue, red, yellow, and orange.");
-				// System.out.println("Do you know what ROYGBIV is? Yes or
-				// no.");
-				// answer = input.next();
-
-				// if (answer.equalsIgnoreCase("yes")) {
-				// System.out.println("What is your favorite ROYGBIV color?");
-				// favoriteColor = input.next();
-				// input.nextLine();
-				// } else {
-				// System.out.println("Please enter \"Help\" to get a list of
-				// colors.");
-				// answer = input.next();
-				// }
-			
-		}
 		
-
-		}
+			
+		
 		System.out.println("How many siblings do you have?");
 		int siblingNum = input.nextInt();
 		
@@ -130,25 +97,25 @@ public class FortuneTeller {
 
 		switch (favoriteColor) {
 		case "indigo":
-			carType = "Hovercraft";
+			carType = " by Hovercraft";
 			break;
 		case "red":
-			carType = "Lamborghini Mercy";
+			carType = "in a Lamborghini Mercy";
 			break;
 		case "blue":
-			carType = "Vespa";
+			carType = "by Vespa";
 			break;
 		case "green":
-			carType = "Station Wagon";
+			carType = "in a Station Wagon";
 			break;
 		case "yellow":
-			carType = "Batmobile";
+			carType = "in the Batmobile";
 			break;
 		case "orange":
-			carType = "ATV";
+			carType = "by ATV";
 			break;
 		case "violet":
-			carType = "Tesla";
+			carType = "in a Tesla";
 			break;
 		default:
 			break;
@@ -185,9 +152,9 @@ public class FortuneTeller {
 		System.out.println(firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase() + " "
 				+ lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase() + " will retire in "
 				+ userAge + " years with " + bankFormatting.format(bankBalance) + ", with a vacation home in "
-				+ vacationHome + ", and will travel by a " + carType);
+				+ vacationHome + ", and will travel " + carType);
  
-		System.out.println("Live longer and prosper my friend");
+		System.out.println("Live long and prosper");
 	}
 
 }
