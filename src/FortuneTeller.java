@@ -4,9 +4,8 @@ import java.util.Locale;
 
 public class FortuneTeller {
 
-	// created a new method to check for quit in a string
-	public static void checkForQuit(String string) {
-		if (string.equalsIgnoreCase("quit")) {
+	public static void checkForQuit(String quitString) {
+		if (quitString.equalsIgnoreCase("quit")) {
 			System.out.println("Nobody likes a quitter...");
 			System.exit(0);
 		}
@@ -16,41 +15,32 @@ public class FortuneTeller {
 
 		Scanner input = new Scanner(System.in);
 
-		// This is a fortune teller program that determines a user's fortune
-		// based on input from the user
 		System.out.println("Let me tell you your future mon. Madame Strange knows all.");
 		System.out.println("You think a psyhic would know these but...");
 
-		// Asking the user for their first name
 		System.out.println("What is your first name?");
 		String firstName = input.next();
 		checkForQuit(firstName);
 
-		// Asking the user for their last name
 		System.out.println("What is your last name?");
 		String lastName = input.next();
 		checkForQuit(lastName);
 
-		// Asking the user for their age
 		System.out.println("How old are you?");
 		String userAgeString = input.next();
 		checkForQuit(userAgeString);
 		int userAge = Integer.parseInt(userAgeString);
 
-		// Asking the user to input their birth month in a numerical value
 		System.out.println("What month were you born? \nPlease enter the corresponding numerical value for the month.");
 		String birthMonthString = input.next();
 		checkForQuit(birthMonthString);
 		int birthMonth = Integer.parseInt(birthMonthString);
 
-		// Asking the user's favorite color
 		System.out.println("What is your favorite ROYGBIV color?");
 		String favoriteColor = input.next().toLowerCase();
 		checkForQuit(favoriteColor);
 		favoriteColor = favoriteColor.toLowerCase();
 
-		// Using a while statement to display the ROYGBIV color when a user
-		// asks for help
 		while (favoriteColor.equalsIgnoreCase("help")) {
 			System.out.println("The ROYGBIV colors are red, blue, green, violet, indigo, yellow, and orange.");
 			System.out.println("What is your favorite ROYGBIV color?");
@@ -59,8 +49,6 @@ public class FortuneTeller {
 			favoriteColor = favoriteColor.toLowerCase();
 		}
 
-		// Using a switch statement to determine if the user has entered a
-		// correct color
 		switch (favoriteColor) {
 
 		case "violet":
@@ -79,19 +67,15 @@ public class FortuneTeller {
 			checkForQuit(favoriteColor);
 		}
 
-		// Asking the user for how many siblings they have
 		System.out.println("How many siblings do you have?");
 		String siblingNumString = input.next();
 		checkForQuit(siblingNumString);
 		int siblingNum = Integer.parseInt(siblingNumString);
 
-		// Asking the user if they are ready for their fortune
 		System.out.println("Alright. Are you ready for your fortune? Yes or no.");
 		String fortuneReady = input.next();
 		checkForQuit(fortuneReady);
 
-		// While statement if the user enters no it will prompt a message and
-		// then ask again if they are ready
 		while (fortuneReady.equalsIgnoreCase("no")) {
 			System.out.println("You can't run from the future mon!");
 			System.out.println("Are you ready for your fortune now?");
@@ -99,16 +83,12 @@ public class FortuneTeller {
 			checkForQuit(fortuneReady);
 		}
 
-		// Calculating retirement age by determining if user's age is even or
-		// odd
 		if (userAge % 2 == 1) {
 			userAge = 30;
 		} else {
 			userAge = 15;
 		}
 
-		// Using if else statements to determine user's vacation home based on
-		// how many siblings they have
 		String vacationHome = null;
 
 		if (siblingNum == 0) {
@@ -124,8 +104,6 @@ public class FortuneTeller {
 		} else {
 			vacationHome = "Bangkok";
 		}
-
-		// Determining a car type for the user based on color preference
 
 		String carType = null;
 
@@ -156,7 +134,6 @@ public class FortuneTeller {
 			System.out.println("by foot because you couldn't follow directions :(");
 		}
 
-		// Using the birth month to determine what their bank balance will be
 		double bankBalance;
 
 		switch (birthMonth) {
@@ -183,10 +160,8 @@ public class FortuneTeller {
 			break;
 		}
 
-		// Formatting the bank balance into currency
 		NumberFormat bankFormatting = NumberFormat.getCurrencyInstance(Locale.US);
 
-		// Print statement of the user's fortune in it's entirety
 		System.out.println(firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase() + " "
 				+ lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase() + " will retire in "
 				+ userAge + " years with " + bankFormatting.format(bankBalance) + ", with a vacation home in "
