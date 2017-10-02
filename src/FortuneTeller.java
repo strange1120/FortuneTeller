@@ -4,6 +4,7 @@ import java.util.Locale;
 
 public class FortuneTeller {
 
+	// created a new method to check for quit in a string
 	public static void checkForQuit(String string) {
 		if (string.equalsIgnoreCase("quit")) {
 			System.out.println("Nobody likes a quitter...");
@@ -57,7 +58,7 @@ public class FortuneTeller {
 			checkForQuit(favoriteColor);
 			favoriteColor = favoriteColor.toLowerCase();
 		}
-		
+
 		// Using a switch statement to determine if the user has entered a
 		// correct color
 		switch (favoriteColor) {
@@ -129,6 +130,7 @@ public class FortuneTeller {
 		String carType = null;
 
 		switch (favoriteColor) {
+
 		case "indigo":
 			carType = " by Hovercraft";
 			break;
